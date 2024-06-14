@@ -2,63 +2,56 @@
   box-sizing: border-box;
 }
 
-.transparent-box {
-  position: absolute;
-  top: 36%;
-  width: 100%;
-}
-
-img {
-  padding: 5px;
-}
-
 .image {
   position: relative;
   width: 670px;
   display: flex;
   justify-content: center;
-  /* border: 4px solid black; */
+  padding: 5px;
 }
 
 p {
   color: white;
   text-align: center;
-  font-size: 2em;
-  background-color: rgba(0, 0, 0, 0.711);
-  transition: 0.5s ease-in-out;
+  font-size: 0em;
+  background-color: rgba(0, 0, 0, 0.7);
+  transition: font-size 0.5s ease-in-out;
+  transform: translateY(-50%);
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  margin: 0;
 }
 
-p:hover {
-  transform: scaleY(3);
+.image:hover p {
+  font-size: 3em;
+  transform: translateY(-50%);
 }
 
 .image::before,
-::after {
+.image::after {
   content: "";
   position: absolute;
   width: 670px;
-  height: 80px;
-  transition: 0.5s ease-in-out;
+  height: 0;
+  transition: height 0.5s ease-in-out, border-top 0.2s ease-in-out 0.5s;
+  border-top: 0px solid black;
+  border-left: 4px solid black;
+  border-right: 4px solid black;
 }
 
 .image::before {
   top: -5px;
-  left: -2.5px;
-  border-top: 4px solid black;
-  border-left: 4px solid black;
-  border-right: 4px solid black;
 }
 
 .image::after {
-  right: -5px;
   bottom: -5px;
-  border-top: 4px solid black;
-  border-left: 4px solid black;
-  border-right: 4px solid black;
   transform: rotate(180deg);
 }
 
 .image:hover::before,
-:hover::after {
-  height: calc(50.5%);
+.image:hover::after {
+  height: 50.5%;
+  border-top: 4px solid black;
+  transition: height 0.5s ease-in-out 0.2s, border-top 0.2s ease-in-out;
 }
